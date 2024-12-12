@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/Sobre nós.css">
+    <title>Sobre Nós - AOPA</title>
+</head>
+<body>
+    <div id="background">
+        <video loop autoplay muted>
+            <source src="Videos/sobre nós.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div id="app">
+        <header>
+            <img src="Logo.png" alt="Logo">
+            <ul class="navigation">
+                <li><a href="Home.html" class="navigation__link">Home</a></li>
+                <li><a href="Sobre nós.html" class="navigation__link">Sobre Nós</a></li>
+                <li><a href="Eventos.html" class="navigation__link">Eventos</a></li>
+                <li><a href="Cadastro.html" class="navigation__link">Login</a></li>
+            </ul>
+        </header>
+
+        <div class="sobre-container">
+            <h1>Sobre a AOPA</h1>
+            <div class="sobre-texto"> <!-- Nova div adicionada -->
+                <p>A Associação das Obras Pavonianas de Assistência (AOPA) em Belo Horizonte é uma instituição de caráter social e educativo dedicada ao atendimento de crianças, adolescentes e jovens em situação de vulnerabilidade social.</p>
+                
+                <p>Fundada pelos religiosos pavonianos, a associação se concentra em oferecer suporte educacional e assistencial, atuando em parceria com o poder público para garantir direitos fundamentais como educação, saúde e assistência social.</p>
+                
+                <p>A AOPA administra uma pré-escola e uma creche em Belo Horizonte, fornecendo um ambiente seguro e com diversas facilidades, como acesso à internet, biblioteca e quadra de esportes.</p>
+                
+                <p>Além disso, a instituição realiza atividades e projetos que promovem o desenvolvimento pessoal e social dos jovens atendidos, incluindo programas voltados para pessoas com deficiência auditiva e apoio a famílias em situação de pobreza.</p>
+            </div> <!-- Fim da nova div -->
+        </div>
+        
+        <main class="sobre-container">
+            <h1>Dados da AOPA</h1>
+            <div class="sobre-blocos">
+                <div class="bloco">
+                    <h2>Descrição</h2>
+                    <p>Situação: Em atividade</p>
+                    <p>Zona: Urbana</p>
+                    <p>Dependência: Privada / Particular</p>
+                    <p>Regulamentação: Sim</p>
+                    <p>Educação Indígena: Não</p>
+                </div>
+                <div class="bloco">
+                    <h2>Ensino Regular</h2>
+                    <p>Pré-Escolas de Período Integral</p>
+                </div>
+                <div class="bloco">
+                    <h2>Alimentação e Transporte</h2>
+                    <p>Alimentação Escolar: Oferece</p>
+                    <p>Transporte Escolar: Não Possui</p>
+                </div>
+                <div class="bloco">
+                    <h2>Acessibilidade</h2>
+                    <p>Acessível a portadores de deficiência: Não</p>
+                    <p>Dependências acessíveis: Não</p>
+                </div>
+                <div class="bloco">
+                    <h2>Infraestrutura</h2>
+                    <p>Biblioteca: Sim</p>
+                    <p>Lab. de Informática: Sim</p>
+                    <p>Lab. de Ciências: Não</p>
+                    <p>Quadra de Esportes: Sim</p>
+                </div>
+                <div class="bloco">
+                    <h2>Internet e Computadores</h2>
+                    <p>Internet: Sim</p>
+                    <p>Banda Larga: Sim</p>
+                    <p>Computadores para Alunos: 0</p>
+                </div>
+                <div class="bloco">
+                    <h2>Dados da Escola</h2>
+                    <p>Categoria: Filantrópica</p>
+                    <p>CNPJ: 62.382.395/0008-68</p>
+                    <p>Conveniada: Municipal</p>
+                </div>
+                <div class="bloco">
+                    <h2>Contato</h2>
+                    <p>Endereço: R Dias Toledo, 99, Vila Paris, Belo Horizonte, MG</p>
+                    <p>CEP: 30380-670</p>
+                    <p>Telefone: 31 3344-1800 | 3296-1948</p>
+                    <p>Email: AOPAPBH@TERRA.COM.BR</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="Logo.png" alt="Logo do AOPA">
+                </div>
+                <div class="footer-info">
+                    <p>&copy; 2024 AOPA. Todos os direitos reservados.</p>
+                    <a href="Termos.html">Termos de Uso</a> | <a href="/pdp.html">Política de Privacidade</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <div id="chatbot-window">
+        <div id="chatbot-header">Chat com AOPA</div>
+        <div id="chatbot-body">
+            <div class="message bot-message">Olá! Como posso ajudar você?</div>
+        </div>
+        <div id="chatbot-footer">
+            <input type="text" id="chatbot-input" placeholder="Digite sua mensagem...">
+            <button id="chatbot-send">Enviar</button>
+        </div>
+    </div>
+    <script src="chatbot.js"></script>
+
+    
+</body>
+</html>

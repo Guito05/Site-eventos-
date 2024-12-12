@@ -1,0 +1,433 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap');
+
+:root {
+    /* Light */
+    --color-light-50: #f8fafc;
+
+    /* Dark */
+    --color-dark-50: #797984;
+    --color-dark-100: #312d37;
+    --color-dark-900: #000;
+
+    /* Purple */
+    --color-purple-50: #ee5731;
+    --color-purple-100: #ff801e;
+    --color-purple-200: #ffd000;
+
+    /* Gradient */
+    --color-gradient-light: linear-gradient(90deg, var(--color-purple-50), var(--color-purple-100), var(--color-purple-200));
+    --color-gradient-dark: linear-gradient(135deg, #000216, #050648, #0057d0);
+}
+
+/* Global styles */
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Animation Keyframes */
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes star-fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+/* Body styles */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-gradient-light);
+    background-size: 400% 400%; /* Tamanho do fundo para animação */
+    animation: gradient-animation 15s ease infinite; /* Animação do fundo */
+    transition: background 0.3s ease-in-out;
+    overflow: hidden; /* Para esconder estrelas que saem da tela */
+    animation: gradient 10s ease infinite;
+    overflow: hidden;
+}
+
+body.dark-mode {
+    background: var(--color-gradient-dark);
+    background-size: 400% 400%; /* Tamanho do fundo para animação no modo escuro */
+    animation: gradient-animation 15s ease infinite; /* Animação do fundo */
+    color: #fff;
+}
+
+/* Estrelas */
+.star {
+    position: absolute;
+    top: -10px;
+    left: calc(100% * ());
+    width: 5px;
+    height: 5px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: star-fall linear infinite;
+    animation-duration: calc(3s + 2s * ()); /* Duração aleatória para cada estrela */
+}
+
+.star:nth-child(1) { animation-delay: 0s; }
+.star:nth-child(2) { animation-delay: 0.5s; }
+.star:nth-child(3) { animation-delay: 1s; }
+.star:nth-child(4) { animation-delay: 1.5s; }
+.star:nth-child(5) { animation-delay: 2s; }
+
+/* Header styles */
+header {
+    position: fixed; /* Corrigir header no topo */
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background: #000;
+    z-index: 10; /* Para garantir que fique acima de outros elementos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+header img {
+    width: 150px;
+}
+
+header .navigation {
+    display: flex;
+    gap: 30px; /* Espaçamento entre os itens */
+}
+
+header .navigation__link {
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+    position: relative;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+header .navigation__link:hover::after {
+    width: 100%;
+}
+
+header .navigation__link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-purple-200);
+    transition: width 0.3s ease;
+}
+
+header .navigation__social a {
+    color: white;
+    font-size: 18px;
+    margin-left: 15px;
+    transition: color 0.3s ease;
+}
+
+header .navigation__social a:hover {
+    color: var(--color-purple-200);
+}
+
+/* Container styles */
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    height: 100%;
+    margin-top: 100px; /* Para empurrar o conteúdo abaixo do header */
+}
+
+/* Form styles */
+#login_form {
+    background-color: var(--color-light-50);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode #login_form {
+    background-color: rgba(30, 30, 30, 0.9);
+}
+
+/* Form header styles */
+#form_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#form_header h1 {
+    font-size: 24px;
+}
+
+/* Social Media styles */
+#social_media {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+#social_media a {
+    color: var(--color-dark-900);
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+#social_media a:hover {
+    color: var(--color-purple-200);
+}
+
+body.dark-mode #social_media a {
+    color: white;
+}
+
+/* Input styles */
+#inputs .input-box {
+    margin-bottom: 15px;
+}
+
+.input-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--color-purple-50);
+}
+
+.input-field i {
+    font-size: 18px;
+    color: var(--color-dark-900);
+}
+
+.input-field input {
+    border: none;
+    background: transparent;
+    flex: 1;
+    padding: 5px 0;
+}
+
+.input-field input:focus {
+    outline: none;
+}
+
+/* Forgot password styles */
+#forgot_password {
+    text-align: right;
+}
+
+#forgot_password a {
+    font-size: 12px;
+    color: var(--color-dark-50);
+}
+
+/* Login button styles */
+#login_button {
+    width: 100%;
+    padding: 10px;
+    background: var(--color-gradient-light); /* Cor no modo claro */
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease; /* Adiciona transição para a cor do texto */
+}
+
+#login_button:hover {
+    background: var(--color-purple-200); /* Cor do botão ao passar o mouse no modo claro */
+}
+
+body.dark-mode #login_button {
+    background: var(--color-purple-100); /* Cor do botão no modo escuro */
+    color: #fff; /* Cor do texto no modo escuro */
+}
+
+/* Para garantir que o botão no modo escuro tenha uma cor diferente ao passar o mouse */
+body.dark-mode #login_button:hover {
+    background: var(--color-purple-200); /* Cor do botão ao passar o mouse no modo escuro */
+}
+
+/* Media query for responsiveness */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 10px 5%;
+    }
+
+    #login_form {
+        max-width: 90%;
+    }
+}
+
+
+
+/*nuvens*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+ 
+    background-size: 400% 400%;
+  
+}
+
+
+body.light-mode .clouds {
+    display: block; /* Mostre as nuvens apenas no modo diurno */
+}
+
+
+/* Adicione esta parte ao seu CSS existente para ocultar as nuvens no modo escuro */
+body.dark-mode .clouds {
+    display: none; /* Esconder nuvens no modo escuro */
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/* Animação de flutuação das nuvens */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.clouds {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    right: 0;
+    height: 100px; /* Altura da área onde as nuvens aparecem */
+    display: flex;
+    justify-content: space-around;
+    pointer-events: none; /* Nuvens não devem interferir em eventos */
+}
+.cloud {
+    background: white;
+    border-radius: 50%; /* Formato de nuvem */
+    position: relative;
+    animation: float 5s infinite;
+}
+#cloud1 {
+    width: 100px;
+    height: 60px;
+    top: 50%;
+    left: -100px;
+    animation: moveClouds 25s linear infinite;
+}
+
+#cloud2 {
+    width: 120px;
+    height: 70px;
+    top: 50%;
+    left: -120px;
+    animation: moveClouds 30s linear infinite;
+}
+
+#cloud3 {
+    width: 80px;
+    height: 50px;
+    top: 30%;
+    left: -80px;
+    animation: moveClouds 20s linear infinite;
+}
+
+#cloud4 {
+    width: 90px;  /* Tamanho da nova nuvem */
+    height: 55px; /* Tamanho da nova nuvem */
+    top: 40%;     /* Posição da nova nuvem */
+    left: -90px;  /* Posição inicial da nova nuvem */
+    animation: moveClouds 27s linear infinite; /* Animação da nova nuvem */
+}
+
+.cloud:before, .cloud:after {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.cloud:before {
+    width: 40px; /* Tamanho reduzido */
+    height: 40px; /* Tamanho reduzido */
+    top: -20%; /* Posiciona acima da nuvem principal */
+    left: 10%; /* Centraliza um pouco à esquerda */
+}
+
+.cloud:after {
+    width: 40px; /* Tamanho reduzido */
+    height: 40px; /* Tamanho reduzido */
+    top: -20%; /* Posiciona acima da nuvem principal */
+    left: 50%; /* Posiciona ao lado da bola esquerda */
+    transform: translateX(-50%); /* Centraliza em relação ao primeiro círculo */
+}
+
+@keyframes moveClouds {
+    0% { left: -300px; }
+    100% { left: 100%; }
+}
+
+
+
+footer {
+    width: 100%;
+    background-color: #0a0c10;
+    color: #ffffff;
+    text-align: center;
+    padding: 5px;
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+}
+
+.footer-content {
+    width: 100%; /* Faz com que o conteúdo ocupe toda a largura */
+    max-width: 1200px; /* Limita a largura máxima do conteúdo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    min-height: 50px;
+}
+
+.footer-logo img {
+    width: 100px;
+}
+
+.footer-info a {
+    color: #ffffff;
+    text-decoration: none;
+}

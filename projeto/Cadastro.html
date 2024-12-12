@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/Cadastro.css">
+    <title>Login Dark/Light Mode</title>
+</head>
+<body>
+
+
+
+    <header>
+        <img src="Logo.png" alt="Logo">
+        <ul class="navigation">
+            <li><a href="Home.html" class="navigation__link">Home</a></li>
+            <li><a href="Sobre nós.html" class="navigation__link">Sobre Nós</a></li>
+            <li><a href="Eventos.html" class="navigation__link">Eventos</a></li>
+            <li><a href="Cadastro.html" class="navigation__link">Login</a></li>
+        </ul>
+        <div class="navigation__social">
+            <a href="https://www.facebook.com/obrassociaispavonianas/"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.google.com.br/webhp?hl=pt-BR&sa=X&ved=0ahUKEwir_Oy7nPyIAxU2H7kGHYwJIp8QPAgI"><i class="fa-brands fa-google"></i></a>
+            <a href="https://www.instagram.com/obrassociaispavonianas/"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </header>
+
+
+
+    <main id="container">
+        <form id="login_form">
+            <div id="form_header">
+                <h1>Login</h1>
+                <i id="mode_icon" class="fa-solid fa-moon"></i>
+            </div>
+            <div id="social_media">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-google"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <div id="inputs">
+                <div class="input-box">
+                    <label for="name">
+                        Name
+                        <div class="input-field">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" id="name" name="name">
+                        </div>
+                    </label>
+                </div>
+                <div class="input-box">
+                    <label for="email">
+                        E-mail
+                        <div class="input-field">
+                            <i class="fa-solid fa-envelope"></i>
+                            <input type="email" id="email" name="email">
+                        </div>
+                    </label>
+                </div>
+                <div class="input-box">
+                    <label for="password">
+                        Senha
+                        <div class="input-field">
+                            <i class="fa-solid fa-key"></i>
+                            <input type="password" id="password" name="password">
+                        </div>
+                    </label>
+                    <div id="forgot_password">
+                        <a href="#">Esqueceu senha?</a>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" id="login_button">Login</button>
+        </form>
+    </main>
+
+<!-- Nuvens -->
+    <div class="clouds">
+        <div class="cloud" id="cloud1"></div>
+        <div class="cloud" id="cloud2"></div>
+        <div class="cloud" id="cloud3"></div>
+        <div class="cloud" id="cloud4"></div> 
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="Logo.png" alt="Logo do AOPA">
+            </div>
+            <div class="footer-info">
+                <p>&copy; 2024 AOPA. Todos os direitos reservados.</p>
+                <a href="Termos.html">Termos de Uso</a> | <a href="/pdp.html">Política de Privacidade</a>
+            </div>
+        </div>
+    </footer>
+    
+
+
+
+
+
+
+    <script src="Cadastro.js"></script>
+
+
+    <script>
+        // Função para realizar a requisição POST
+        async function fazerRequisicao() {
+            try {
+                const response = await fetch("", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: "https://forge.withub.ai/api/triggers/5257a02d-c19b-4969-ab81-2206de86082c/execute/67085c91c2a6dcafb3d4d6af"
+                });
+
+                const data = await response.json(); // Obtém a resposta em JSON
+                document.getElementById('resultado').textContent ="https://forge.withub.ai/api/triggers/5257a02d-c19b-4969-ab81-2206de86082c/execute/67085c91c2a6dcafb3d4d6af"(data, null, 2); // Exibe o resultado formatado
+            } catch (error) {
+                document.getElementById('resultado').textContent = "Erro ao realizar a requisição: " + error;
+            }
+        }
+
+        // Chama a função para fazer a requisição ao carregar a página
+        fazerRequisicao();
+    </script>
+    
+</body>
+</html>

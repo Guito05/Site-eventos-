@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot - Obras Pavonianas Infantis</title>
+    <!-- Link para uma fonte do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos globais com a nova fonte */
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Estilos do botão de chat */
+        #chatbot-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #FF0000; /* Cor vermelha */
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Estilos da janela de chat */
+        #chatbot-window {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 300px;
+            max-width: 80%;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Cabeçalho do chat */
+        #chatbot-header {
+            background-color: #FF0000; /* Cor vermelha */
+            color: white;
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Corpo do chat */
+        #chatbot-body {
+            padding: 10px;
+            height: 200px;
+            overflow-y: auto;
+        }
+
+        /* Campo de entrada e botão de enviar */
+        #chatbot-footer {
+            display: flex;
+            padding: 10px;
+            background-color: #fff;
+            border-top: 1px solid #ccc;
+            border-radius: 0 0 10px 10px;
+        }
+        #chatbot-input {
+            flex: 1;
+            border: none;
+            border-radius: 4px;
+            padding: 5px;
+            font-family: 'Roboto', sans-serif;
+        }
+        #chatbot-send {
+            background-color: #FF0000; /* Cor vermelha */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Estilos das mensagens */
+        .message {
+            margin-bottom: 10px;
+        }
+        .user-message {
+            text-align: right;
+            color: #000;
+        }
+        .bot-message {
+            text-align: left;
+            color: #FF0000; /* Cor vermelha */
+        }
+    </style>
+</head>
+<body>
+    <!-- Botão do Chatbot -->
+    <button id="chatbot-button">💬</button>
+
+    <!-- Janela do Chatbot -->
+    <div id="chatbot-window">
+        <div id="chatbot-header">Chat com AOPA</div>
+        <div id="chatbot-body">
+            <div class="message bot-message">Olá! Como posso ajudar você?</div>
+        </div>
+        <div id="chatbot-footer">
+            <input type="text" id="chatbot-input" placeholder="Digite sua mensagem...">
+            <button id="chatbot-send">Enviar</button>
+        </div>
+    </div>
+
+    <script>
+        const chatbotButton = document.getElementById('chatbot-button');
+        const chatbotWindow = document.getElementById('chatbot-window');
+        const chatbotBody = document.getElementById('chatbot-body');
+        const chatbotInput = document.getElementById('chatbot-input');
+        const chatbotSend = document.getElementById('chatbot-send');
+
+        // Alternar visibilidade do chatbot
+        chatbotButton.addEventListener('click', () => {
+            chatbotWindow.style.display = chatbotWindow.style.display === 'none' ? 'block' : 'none';
+        });
+
+        // Enviar mensagem
+        chatbotSend.addEventListener('click', sendMessage);
+
+        // Função para enviar mensagem
+        function sendMessage() {
+            const userMessage = chatbotInput.value.trim();
+            if (userMessage) {
+                appendMessage(userMessage, 'user-message');
+                chatbotInput.value = '';
+                botResponse(userMessage);
+            }
+        }
+
+        // Função para adicionar mensagem na tela
+        function appendMessage(message, className) {
+            const messageElement = document.createElement('div');
+            messageElement.className = `message ${className}`;
+            messageElement.textContent = message;
+            chatbotBody.appendChild(messageElement);
+            chatbotBody.scrollTop = chatbotBody.scrollHeight;
+        }
+
+        // Respostas básicas do chatbot
+        function botResponse(userMessage) {
+            let botMessage = "Desculpe, não entendi. Pode reformular?";
+
+            if (userMessage.includes('ajuda')) {
+                botMessage = "Estou aqui para ajudar! Sobre o que você precisa de ajuda?";
+            } else if (userMessage.includes('eventos')) {
+                botMessage = "Para saber sobre os eventos, visite a página de 'Eventos' no nosso site!";
+            } else if (userMessage.includes('localização')) {
+                botMessage = "Você pode nos encontrar em Belo Horizonte. Consulte o mapa na página 'Sobre Nós'.";
+            }
+            
+
+            setTimeout(() => appendMessage(botMessage, 'bot-message'), 1000);
+        }
+    </script>
+</body>
+</html>

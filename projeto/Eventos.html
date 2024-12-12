@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/Home.css">
+    <link rel="stylesheet" href="css/Eventos.css">
+    <title>Eventos - AOPA</title>
+</head>
+<body>
+    <div id="background">
+        <video loop autoplay muted>
+            <source src="Videos/eventos.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <div id="app">
+        <header>
+            <img src="Logo.png" alt="Logo">
+            <ul class="navigation">
+                <li><a href="Home.html" class="navigation__link">Home</a></li>
+                <li><a href="Sobre nós.html" class="navigation__link">Sobre Nós</a></li>
+                <li><a href="Eventos.html" class="navigation__link">Eventos</a></li>
+                <li><a href="Cadastro.html" class="navigation__link">Login</a></li>
+            </ul>
+            <div class="navigation__social">
+                <!-- ícones SVG das redes sociais -->
+            </div>
+        </header>
+        
+        <main class="eventos-container">
+            <h1>Eventos de Festa - AOPA</h1>
+            <div class="evento">
+                <img src="imgs/Cantata de Natal.png" alt="Evento 1">
+                <div class="evento-info">
+                    <h2>Cantata de Natal</h2>
+                    <p>Venha curtir uma festa inesquecível na praia com muita música e diversão.</p>
+                    <button onclick="window.location.href='reserva.html'">Venha-já!</button>
+                </div>
+            </div>
+            <div class="evento">
+                <img src="imgs/Quadrilha.png" alt="Evento 2">
+                <div class="evento-info">
+                    <h2>Festa Junina</h2>
+                    <p>Aproveite nossa tradicional festa junina com quadrilha, comidas típicas e muita animação.</p>
+                    <button onclick="window.location.href='reserva.html'">Venha-já!</button>
+                </div>
+            </div>
+            <div class="evento">
+                <img src="imgs/Mostra Cultural.png" alt="Evento 3">
+                <div class="evento-info">
+                    <h2>Mostra Cultural</h2>
+                    <p>Use sua melhor fantasia e venha se divertir em uma noite cheia de surpresas e diversão.</p>
+                    <button onclick="window.location.href='reserva.html'">Venha-já!</button>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="Logo.png" alt="Logo do AOPA">
+                </div>
+                <div class="footer-info">
+                    <p>&copy; 2024 AOPA. Todos os direitos reservados.</p>
+                    <a href="Termos.html">Termos de Uso</a> | <a href="pdp.html">Política de Privacidade</a>
+                </div>
+                <div class="footer-social">
+                    <!-- ícones SVG das redes sociais -->
+                </div>
+            </div>
+        </footer>
+        <!-- Fim do Footer -->
+   <!-- Botão do Chatbot -->
+   <button id="chatbot-button">💬</button>
+
+   <!-- Janela do Chatbot -->
+   <div id="chatbot-window">
+       <div id="chatbot-header">Chat com AOPA</div>
+       <div id="chatbot-body">
+           <div class="message bot-message">Olá! Como posso ajudar você?</div>
+       </div>
+       <div id="chatbot-footer">
+           <input type="text" id="chatbot-input" placeholder="Digite sua mensagem...">
+           <button id="chatbot-send">Enviar</button>
+       </div>
+   </div>
+
+
+
+   <script>
+    // Função para realizar a requisição POST
+    async function fazerRequisicao() {
+        try {
+            const response = await fetch("", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: "https://forge.withub.ai/api/triggers/5257a02d-c19b-4969-ab81-2206de86082c/execute/67085c91c2a6dcafb3d4d6af"
+            });
+
+            const data = await response.json(); // Obtém a resposta em JSON
+            document.getElementById('resultado').textContent ="https://forge.withub.ai/api/triggers/5257a02d-c19b-4969-ab81-2206de86082c/execute/67085c91c2a6dcafb3d4d6af"(data, null, 2); // Exibe o resultado formatado
+        } catch (error) {
+            document.getElementById('resultado').textContent = "Erro ao realizar a requisição: " + error;
+        }
+    }
+
+    // Chama a função para fazer a requisição ao carregar a página
+    fazerRequisicao();
+    </script>
+
+
+
+
+
+
+<script src="chatbot.js"></script>
+    </div>
+</body>
+</html>
